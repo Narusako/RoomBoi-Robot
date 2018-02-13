@@ -1,0 +1,78 @@
+const int rW = 3;
+const int rw = 2;
+const int rSpd = 7;
+
+const int lW = 4;
+const int lw = 5;
+const int lSpd = 8;
+
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(rW, OUTPUT);
+  pinMode(rw, OUTPUT);
+  pinMode(rSpd, OUTPUT);
+  
+  pinMode(lW, OUTPUT);
+  pinMode(lw, OUTPUT);
+  pinMode(lSpd, OUTPUT);
+}
+
+void loop()
+{
+  forward();
+  
+  left();
+
+  back();
+  
+  right();
+
+  terminate();
+}
+
+void forward()
+{
+  delay(1000);
+  digitalWrite(rW,HIGH);
+  digitalWrite(rw,LOW);
+  digitalWrite(lW, HIGH);
+  digitalWrite(lw, LOW); 
+}
+
+void back()
+{
+  delay(1000);
+  digitalWrite(rW, LOW);
+  digitalWrite(rw, HIGH);
+  digitalWrite(lW, LOW);
+  digitalWrite(lw, HIGH);  
+}
+
+void left()
+{
+ delay(1000);
+ digitalWrite(rW,HIGH);
+ digitalWrite(rw, LOW);
+}
+
+void right()
+{
+delay(1000);
+digitalWrite(lW, HIGH);
+digitalWrite(lw, LOW);
+}
+
+void terminate()
+{
+ digitalWrite(rW, LOW);
+ digitalWrite(rw, LOW);
+ digitalWrite(lW, LOW);
+ digitalWrite(lw, LOW);
+}
+
+
+
+
+
+
